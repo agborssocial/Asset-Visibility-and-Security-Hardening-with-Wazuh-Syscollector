@@ -1,0 +1,1 @@
+# Asset-Visibility-and-Security-Hardening-with-Wazuh-Syscollector
