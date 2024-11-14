@@ -1,6 +1,15 @@
 # Asset-Visibility-and-Security-Hardening-with-Wazuh-Syscollector
 ## Objective
 The purpose of this lab is to configure and utilize Wazuh's Syscollector module to gather a comprehensive system inventory of hardware and software assets on monitored endpoints. This inventory enhances visibility of resources within the IT infrastructure, helping to reduce the attack surface by identifying and documenting all hardware and software in use. Additionally, the lab covers querying the inventory for specific resources and generating reports to provide insight into endpoint configurations and supporting security.
+## Lab Setup
+The lab consists of two Virtual Machines (VMs). The Wazuh server is installed on an Ubuntu VM, and the agent is installed on a Windows VM. VMware is used as the virtualization platform.
+## Skills Learned
+- Endpoint System Inventory Management
+- Generating and Interpreting System Inventory Reports
+- System Inventory Querying and Analysis
+## Tools Used
+- Wazuh
+- VMware
 ## System Inventory
 A system inventory is a detailed record of hardware and software assets within an IT environment. Maintaining this inventory enables organizations to maximize visibility of their infrastructure and reduce the attack surface by identifying resources that may pose security risks. Wazuh’s SIEM capabilities assist IT teams in achieving this goal by collecting information such as hardware and OS details, installed software, network interfaces, ports, and running processes on each endpoint. The Wazuh agent creates a local database containing this data, which it then forwards to the Wazuh server for centralized management. The information collected depends on the agent configuration, and each endpoint has its unique system inventory.
 ## Configuring System Inventory Collection
