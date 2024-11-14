@@ -28,7 +28,24 @@ By default, system inventory scans are set to run every hour. However, this inte
 
 ## Viewing System Inventory of an Agent
 To view an agent's system inventory, navigate to `Options > Endpoint`. Click on the endpoint of interest. Click Inventory Data on the right of dashboard.  
+
 **Result**  
+
+![inventorydashboard1](https://github.com/user-attachments/assets/5ea81764-3cc0-49b3-905f-5903d358c272)
+
+<p align="center"><strong>Figure 1: System Inventory of Network Interfaces and Ports</strong></p>
+
+![inventorydashboard2](https://github.com/user-attachments/assets/0846e904-eec2-443c-891b-ddc3928d30aa)
+
+<p align="center"><strong>Figure 2: System Inventory of Network Settings and Windows Updates</strong></p>
+
+![inventorydashboard3](https://github.com/user-attachments/assets/f5796439-c367-4caf-a6db-ecb9eb72d8c9)
+
+<p align="center"><strong>Figure 3: System Inventory of Endpoint Packages</strong></p>
+
+![inventorydashboard4](https://github.com/user-attachments/assets/2123ab02-70d4-4b38-9ff8-b51d106f9865)
+
+<p align="center"><strong>Figure 4: System Inventory of Endpoint Processes</strong></p>
 
 ## Querying the System Inventory Database
 You can query the system inventory database to check for the presence of specific resources on an endpoint. This can be done using the Wazuh console, SQLite, or the curl command. For simplicity, this lab uses the Wazuh console. To access the console, navigate to `Server Management > Dev Tools` and enter a command such as `GET /syscollector/<AGENT_ID>/` to retrieve inventory data for a specific agent. Where Agent id is the unique id of the enrolled agent. The ids are usually given in order of which the agensts are enrolled. That is fisrt enrolled agent will have agent id 001, second agent will have agent id 002 and so on unless configured otherwise.
@@ -41,6 +58,12 @@ An antivirus is essential for the average user. We can use the Wazuh console to 
     GET /syscollector/001/packages?pretty=true&search=security
   ```
 
+**Result**  
+
+![SysCollectorAntivirusSearch](https://github.com/user-attachments/assets/c124a4f0-9ad7-4d70-95bd-b3b9bde373bc)
+
+<p align="center"><strong>Figure 5: Searching System Inventory for Antivirus Software</strong></p>
+
 ## Another Example: Adding New Software and Checking Inventory
 1. **Setting up environment**
    Install a new application (e.g., 7-Zip), the package should appear in the system inventory after the next scan interval (e.g., 20 minutes). To verify this, navigate to the system inventory dashboard and refresh the packages list.
@@ -51,7 +74,11 @@ An antivirus is essential for the average user. We can use the Wazuh console to 
         GET /syscollector/001/packages?pretty=true&search=zip
       ```
         
-3. **Result**
+3. **Result**  
+
+   ![SysCollector7zipSearch](https://github.com/user-attachments/assets/109c63d4-e425-475b-809e-9610346b96dd)
+
+   <p align="center"><strong>Figure 6: Querying System Inventory for Specific software</strong></p>
     
 ## Using System Inventory to View RAM Usage and Other Hardware Information
 To view hardware information like RAM usage, CPU name, and core count, type the following command in the Wazuh console:
@@ -59,6 +86,11 @@ To view hardware information like RAM usage, CPU name, and core count, type the 
     GET /syscollector/001/hardware?pretty=true&select=ram.usage,cpu.name,cpu.cores
   ```
 
-**Result**
+**Result**  
+
+![SysCollectorHardwareSearch](https://github.com/user-attachments/assets/07bd2593-797f-45f4-9fcf-95e349a1ddcb)
+
+<p align="center"><strong>Figure 7: Querying System Inventory for Hardware Parameters</strong></p>
+
 ## Generating System Inventory Reports
 Wazuh can generate two types of inventory reports: a full report covering all resources or a report focused on a specific resource group (e.g., all installed software or hardware details). To generate a full report, navigate to `Options > Endpoint > [ENDPOINT_NAME] > Inventory Data` and click Generate Report. For a report on a specific resource type, navigate to `Options > Endpoint Summary > [ENDPOINT_NAME] > Inventory Data`, select the resource group of interest, and download the CSV file.
