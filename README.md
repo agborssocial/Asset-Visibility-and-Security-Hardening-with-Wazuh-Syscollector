@@ -1,4 +1,4 @@
-# Asset-Visibility-and-Security-Hardening-with-Wazuh-Syscollector
+# Asset Visibility and Security Hardening with Wazuh Syscollector
 ## Objective
 The purpose of this lab is to configure and utilize Wazuh's Syscollector module to gather a comprehensive system inventory of hardware and software assets on monitored endpoints. This inventory enhances visibility of resources within the IT infrastructure, helping to reduce the attack surface by identifying and documenting all hardware and software in use. Additionally, the lab covers querying the inventory for specific resources and generating reports to provide insight into endpoint configurations and supporting security.
 ## Lab Setup
